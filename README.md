@@ -1,4 +1,4 @@
-Welcome to my **CodSoft Internship** Repository!<br><br>
+ Welcome to my **CodSoft Internship** Repository!<br><br>
 This repository documents my journey and project work throughout my **Artificial Intelligence** internship at CodSoft.<br>
 During this internship, I have the opportunity to work on real-world AI tasks, explore cutting-edge techniques, and build hands-on experience.<br>
 The projects here reflect my progress and learning in the field of AI.
