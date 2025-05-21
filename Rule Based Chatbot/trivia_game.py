@@ -32,6 +32,7 @@ def load_qs(filename=r"trivia_questions.txt"):
         return []
     return questions
 
+#Categorising trivia question
 
 def get_available_categories(questions):
     return sorted(set(q["category"] for q in questions))
@@ -76,6 +77,7 @@ def calculate_score(correct_answers, total_questions):
 def display_score(score):
     print(f"\nYour current score is: {score:.2f}%")
 
+#Replaying trivia game
 
 def ask_retry():
     while True:
@@ -87,6 +89,7 @@ def ask_retry():
         else:
             print("Please enter yes or no.")
 
+#Trivia Game Code block
 
 def play_trivia_game():
     questions = load_qs()
