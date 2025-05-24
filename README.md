@@ -33,9 +33,9 @@ Each project reflects a different AI technique and tool aimed at solving practic
 
 -Inside each folder, you will find:
 
-    -A detailed README.md explaining the task, setup instructions, implementation details, and optional enhancements.
+* A detailed README.md explaining the task, setup instructions, implementation details, and optional enhancements.
 
-    -The complete source code and any necessary data or models.
+* The complete source code and any necessary data or models.
 
 -All projects were built using Python 3 and open-source libraries.
 
