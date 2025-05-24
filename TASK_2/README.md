@@ -1,6 +1,6 @@
 # Tic Tac Toe AI Game (Unbeatable Mode)
 
-Welcome to the **Tic Tac Toe AI Game** — a Python-powered, Pygame-based graphical game where you play against an intelligent AI opponent. The game is built with features like Minimax decision-making algorithm and an interactive interface.
+Welcome to the **Tic Tac Toe AI Game** — a Python-powered, Pygame-based graphical game where you play against an intelligent AI opponent. The game is built with feature of Minimax decision-making algorithm and an interactive interface.
 
 ## How to Play
 
@@ -33,6 +33,20 @@ Welcome to the **Tic Tac Toe AI Game** — a Python-powered, Pygame-based graphi
 * **Replay Logic**: Easily restart by re-running the program.
 * **AI Evaluation Feedback**: Console prints show how AI selects its moves and why.
 
+## Game Functions
+
+The game supports keyboard shortcuts for toggling modes and changing difficulty:
+
+**Key**   	**Function Description**
+
+* **G**  --   Toggle Game Mode between Player vs Player (PvP) and Player vs AI
+* **0**	 --   Set AI difficulty to Level 0 – AI plays random moves
+* **1**	 --   Set AI difficulty to Level 1 – AI uses the Minimax algorithm
+* **R**	 --   Reset the current game and start a new one
+
+These shortcuts make it easy to test different AI strategies and enjoy competitive or casual gameplay.
+
+
 ## Requirements
 
 * Python 3.x
@@ -54,29 +68,16 @@ pip install pygame
 ├── README.md           # This file
 ```
 
-## Constants (examples in `constants.py`)
-
-```python
-WIDTH = 600
-HEIGHT = 600
-LINE_WIDTH = 15
-ROWS = 3
-COLS = 3
-SQ_SIZE = WIDTH // COLS
-CIRCLE_RADIUS = SQ_SIZE // 3
-...
-```
-
 ## Implementation Details
 
 * Uses NumPy arrays to manage the board state.
 * Minimax recursively evaluates all possible game outcomes.
 * The AI is designed to always block the player or win if a path exists.
 * Game board redrawing and event handling are done using Pygame.
+* Added difficulty levels (Random, Minimax with depth limit, Perfect AI).
 
 ## Future Improvements
 
-* Add difficulty levels (Random, Minimax with depth limit, Perfect AI).
 * Add score tracking across multiple rounds.
 * Add background music or sound effects.
 * GUI elements like reset button or difficulty selector.

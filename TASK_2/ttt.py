@@ -15,8 +15,9 @@ screen.fill( BG_COLOR)
 class Board:
 
     def __init__(self):
+        #empty squares
         self.squares = np.zeros((ROWS,COLS))
-        self.empty_sqrs = self.squares #empty squares
+        self.empty_sqrs = self.squares 
         self.marked_sqrs = 0
 
     def final_state(self,show =False):
@@ -34,6 +35,7 @@ class Board:
                     initPos = (col*SQ_SIZE+SQ_SIZE//2,20)
                     finPos = (col*SQ_SIZE+SQ_SIZE//2,HEIGHT - 20)
                     pygame.draw.line(screen,color,initPos,finPos,LINE_WIDTH)
+                    #draws vertical line crossing the 3 aligned symbols
                 return self.squares[0][col]
             
         #hor wins
@@ -44,6 +46,7 @@ class Board:
                     initPos = (20,row*SQ_SIZE+SQ_SIZE//2)
                     finPos = (WIDTH- 20,row*SQ_SIZE+SQ_SIZE//2)
                     pygame.draw.line(screen,color,initPos,finPos,LINE_WIDTH)
+                    #draws horizontal line crossing the 3 aligned symbols
                 return self.squares[row][0]
             
         #desc diagonal win
@@ -53,6 +56,7 @@ class Board:
                     initPos = (20,20)
                     finPos = (WIDTH- 20,HEIGHT-20)
                     pygame.draw.line(screen,color,initPos,finPos,CROSS_WIDTH)
+                    #draws diagonal lines crossing the 3 aligned symbols
             return self.squares[1][1]
         
         #asc diagonal win
@@ -62,6 +66,7 @@ class Board:
                     initPos = (20,HEIGHT - 20)
                     finPos = (WIDTH- 20,20)
                     pygame.draw.line(screen,color,initPos,finPos,CROSS_WIDTH)
+                    #draws diagonal lines crossing the 3 aligned symbols
             return self.squares[1][1]
 
         #no win yet
@@ -85,9 +90,11 @@ class Board:
 
     def isfull(self):
         return self.marked_sqrs == 9
+    #full grid, end og game
     
     def isempty(self):
         return self.marked_sqrs == 0
+    #empty grid
 
 class AI:
 
@@ -102,7 +109,7 @@ class AI:
         return empty_sqrs[index] 
 
     def minmax(self,board,maximizing):
-        #check terminal cases
+        #check terminal cases --total 3
         case = board.final_state()
 
         #case 1 p1 wwins
@@ -115,6 +122,8 @@ class AI:
         elif board.isfull():
             return 0,None
         
+        #Maximizing and Minimizing Cases Of the Minimax decision-making Algorithm
+
         if maximizing:
             max_eval = -100
             best_move = None
@@ -127,7 +136,6 @@ class AI:
                 if eval > max_eval:
                     max_eval=eval
                     best_move = (row,col)
-
         
             return max_eval,best_move
 
@@ -143,9 +151,10 @@ class AI:
                 if eval < min_eval:
                     min_eval=eval
                     best_move = (row,col)
-
         
             return min_eval,best_move
+
+    #Evaluation Function of the minimax Alg
 
     def eval(self,main_board):
         if self.level==0:
@@ -187,8 +196,10 @@ class Game:
         pygame.draw.line(screen, LINE_COLOR,(0,HEIGHT - SQ_SIZE),(WIDTH,HEIGHT - SQ_SIZE),LINE_WIDTH)
 
     def draw_fig(self,row,col):
+        #Player 1- X 
+        #Player 2- O
         if self.player ==1:
-            #draw x
+            #drawing x
             #desc line
             start_desc=(col *SQ_SIZE +OFFSET,row*SQ_SIZE+OFFSET)
             end_desc=(col*SQ_SIZE+SQ_SIZE-OFFSET,row*SQ_SIZE+SQ_SIZE-OFFSET)
@@ -207,16 +218,19 @@ class Game:
         self.player=self.player % 2 + 1
 
     def change_gamemode(self):
+        #player vs player or player vs ai game-mode toggle
         if self.gamemode == 'pvp':
             self.gamemode = 'ai'
         else:
             self.gamemode='pvp'
 
     def is_over(self):
+        #board full - end game
         return self.board.final_state(show=True) != 0 or self.board.isfull()
 
     def reset(self):
         self.__init__()
+        #reset game grid and restart game
 
 
 def main():
