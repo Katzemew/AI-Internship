@@ -1,8 +1,8 @@
-# CodSoft AI Internship #
+# AI Internship #
 
-Welcome to my **CodSoft Internship** repository!
+Welcome to my **AI Internship** repository!
 
-This repository documents my journey and project work during my **Artificial Intelligence Internship** at CodSoft. It includes real-world AI tasks that helped me explore cutting-edge techniques and build hands-on experience.
+This repository documents my journey and project work during my **Artificial Intelligence Internship**. It includes real-world AI tasks that helped me explore cutting-edge techniques and build hands-on experience.
 
 ## 🔧 Internship Overview 🔧 ##
 
